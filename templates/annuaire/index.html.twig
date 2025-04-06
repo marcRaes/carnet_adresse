@@ -3,15 +3,17 @@
 {% block title %}Hello AnnuaireController!{% endblock %}
 
 {% block body %}
-    <div class="container m-4">
+    <div class="container">
         {% for contact in contacts %}
-            <div class="card shadow p-4 m-2">
-                <div class="body">
-                    <h5 class="card-title">
-                        {{ contact.nom }} {{ contact.prenom }}
-                    </h5>
+            <div class="card shadow m-2 text-center">
+                <div class="card-header">
+                    <h5 class="card-title">{{ contact.nom }} {{ contact.prenom }}</h5>
+                </div>
+                <div class="card-body">
+                    <p>{{ contact.adresse }}</p>
                     <p class="card-text">
-                        {{ contact.telephone }}
+                        {{ contact.telephone }}<br>
+                        {{ contact.mail }}
                     </p>
                 </div>
             </div>
