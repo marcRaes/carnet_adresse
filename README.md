@@ -4,16 +4,16 @@ Ce projet est une application web simple de carnet d'adresses, développée en P
 
 ## Fonctionnalités
 
-* **Ajout de contacts** : Possibilité d'ajouter de nouveaux contacts avec leurs informations. (A venir)
+* **Ajout de contacts** : Possibilité d'ajouter de nouveaux contacts avec leurs informations.
 * **Liste des contacts** : Affichage de la liste de tous les contacts enregistrés.
-* **Modification de contacts** : Possibilité de modifier les informations d'un contact existant. (A venir)
-* **Suppression de contacts** : Possibilité de supprimer un contact de la liste. (A venir)
+* **Modification de contacts** : Possibilité de modifier les informations d'un contact existant.
+* **Suppression de contacts** : Possibilité de supprimer un contact de la liste.
 
 ## Utilisation
 
-* Pour ajouter un contact, cliquez sur le bouton "Ajouter un contact". (A venir)
-* Pour modifier un contact, cliquez sur le bouton "Modifier" situé à côté du contact dans la liste. (A venir)
-* Pour supprimer un contact, cliquez sur le bouton "Supprimer" situé à côté du contact dans la liste. (A venir)
+* Pour ajouter un contact, cliquez sur le bouton "Ajouter un contact".
+* Pour modifier un contact, cliquez sur le bouton "Modifier".
+* Pour supprimer un contact, cliquez sur le bouton "Supprimer".
 
 ## Contributions
 
