@@ -48,6 +48,7 @@ final class AnnuaireController extends AbstractController
 
         return $this->render('annuaire/create.html.twig', [
             'form' => $form,
+            'isNew' => $isNew,
         ]);
     }
 
