@@ -4,6 +4,7 @@
 
 {% block body %}
     <div class="container">
+        <a href="{{ path('app_annuaire_create') }}" class="btn btn-primary">Ajouter un contact</a>
         {% for contact in contacts %}
             <div class="card shadow m-2 text-center">
                 <div class="card-header">
