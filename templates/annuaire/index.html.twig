@@ -17,6 +17,9 @@
                         {{ contact.mail }}
                     </p>
                 </div>
+                <div class="card-footer text-body-secondary">
+                    <a href="{{ path('app_annuaire_edit', { 'id': contact.id }) }}" class="btn btn-primary">Modifier le contact</a>
+                </div>
             </div>
         {% endfor %}
     </div>

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\ContactRepository;
+use App\Service\FormHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,17 +25,23 @@ final class AnnuaireController extends AbstractController
     }
 
     #[Route('/create', name: 'app_annuaire_create')]
-    public function create(Request $request, EntityManagerInterface $entityManager): Response
+    #[Route('/edit/{id}', name: 'app_annuaire_edit')]
+    public function create(Request $request, FormHandler $formHandler, Contact $contact = null): Response
     {
-        $contact = new Contact();
+        $isNew = false;
+        if (!$contact) {
+            $contact = new Contact();
+            $isNew = true;
+        }
+
         $form = $this->createForm(ContactType::class, $contact);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($contact);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Le contact ' . $contact->getNom() . ' ' . $contact->getPrenom() . ' a été créé avec succès');
+        if ($formHandler->handleForm($contact, $form, $request)) {
+            if ($isNew) {
+                $this->addFlash('success', 'Le contact ' . $contact->getNom() . ' ' . $contact->getPrenom() . ' a été créé avec succès');
+            } else {
+                $this->addFlash('success', 'Le contact ' . $contact->getNom() . ' ' . $contact->getPrenom() . ' a été modifié avec succès');
+            }
 
             return $this->redirectToRoute('app_annuaire');
         }
