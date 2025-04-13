@@ -50,4 +50,15 @@ final class AnnuaireController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    #[Route('/delete/{id}', name: 'app_annuaire_delete')]
+    public function delete(Contact $contact, EntityManagerInterface $entityManager): Response
+    {
+        $entityManager->remove($contact);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Le contact ' . $contact->getNom() . ' ' . $contact->getPrenom() . ' a été supprimé avec succès!');
+
+        return $this->redirectToRoute('app_annuaire');
+    }
 }
